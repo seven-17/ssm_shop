@@ -1,8 +1,10 @@
 package cn.e3mall.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class TbItemParam {
+@SuppressWarnings("serial")
+public class TbItemParam implements Serializable {
     private Long id;
 
     private Long itemCatId;

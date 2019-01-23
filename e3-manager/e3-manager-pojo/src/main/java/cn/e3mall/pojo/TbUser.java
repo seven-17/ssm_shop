@@ -1,8 +1,10 @@
 package cn.e3mall.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class TbUser {
+@SuppressWarnings("serial")
+public class TbUser implements Serializable {
     private Long id;
 
     private String username;

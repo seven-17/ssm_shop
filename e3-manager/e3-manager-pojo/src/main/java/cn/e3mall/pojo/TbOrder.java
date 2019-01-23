@@ -1,8 +1,10 @@
 package cn.e3mall.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class TbOrder {
+@SuppressWarnings("serial")
+public class TbOrder implements Serializable {
     private String orderId;
 
     private String payment;
