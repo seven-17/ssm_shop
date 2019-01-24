@@ -5,6 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+
+import cn.e3mall.common.pojo.EasyUIDataGridResult;
 import cn.e3mall.mapper.TbItemMapper;
 import cn.e3mall.pojo.TbItem;
 import cn.e3mall.pojo.TbItemExample;
@@ -17,7 +21,6 @@ public class ItemServiceImpl implements ItemService {
 	@Autowired
 	private TbItemMapper itemMapper;
 	
-	@Override
 	public TbItem getItemById(long itemId) {
 		//根据主键查询
 		//TbItem tbItem = itemMapper.selectByPrimaryKey(itemId);
@@ -30,6 +33,20 @@ public class ItemServiceImpl implements ItemService {
 		List<TbItem> list = itemMapper.selectByExample(example);
 		if (list != null && list.size() > 0) return list.get(0);
 		return null;
+	}
+
+	public EasyUIDataGridResult getItemList(int page, int rows) {
+		//设置分页
+		PageHelper.startPage(page, rows);
+		//执行查询
+		TbItemExample example = new TbItemExample();
+		List<TbItem> list = itemMapper.selectByExample(example);
+		//获取详细信息
+		PageInfo<TbItem> pageInfo = new PageInfo<TbItem>(list);
+		EasyUIDataGridResult dataGridResult = new EasyUIDataGridResult();
+		dataGridResult.setRows(list);
+		dataGridResult.setTotal((int) pageInfo.getTotal());
+		return dataGridResult;
 	}
 
 }
