@@ -23,5 +23,5 @@
 	
 	<!-- 声明需要暴露的服务接口  调试时设置超时时间 timeout="600000" -->
 	<dubbo:service interface="cn.e3mall.service.ItemService" ref="itemServiceImpl" />
-	
+	<dubbo:service interface="cn.e3mall.service.ItemCatService" ref="itemCatServiceImpl" />
 </beans>

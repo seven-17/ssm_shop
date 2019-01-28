@@ -8,7 +8,10 @@
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
         http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
-
+	
+	<context:property-placeholder location="classpath:conf/resource.properties" />
+	
+	<!-- 静态资源放行 -->
 	<mvc:resources location="/css/" mapping="/css/**" />
 	<mvc:resources location="/js/" mapping="/js/**" />
 
@@ -21,9 +24,17 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 	
+	<!-- 定义文件上传解析器(id必须) -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 设定默认编码 -->
+		<property name="defaultEncoding" value="UTF-8"></property>
+		<!-- 设定文件上传的最大值5MB，5*1024*1024 -->
+		<property name="maxUploadSize" value="5242880"></property>
+	</bean>
+	
 	<!-- 引用dubbo服务 -->
 	<dubbo:application name="e3-manager-web"/>
 	<dubbo:registry protocol="zookeeper" address="39.108.122.93:2181"/>	
 	<dubbo:reference interface="cn.e3mall.service.ItemService" id="itemService" />
-	
+	<dubbo:reference interface="cn.e3mall.service.ItemCatService" id="itemCatService" />
 </beans>

@@ -43,7 +43,7 @@ var E3 = {
 	},
 	// 格式化价格
 	formatPrice : function(val,row){
-		return (val/1000).toFixed(2);
+		return (val/100).toFixed(2);
 	},
 	// 格式化商品的状态
 	formatItemStatus : function formatStatus(val,row){
@@ -51,6 +51,8 @@ var E3 = {
             return '正常';
         } else if(val == 2){
         	return '<span style="color:red;">下架</span>';
+        } else if(val == 3){
+        	return '<span style="color:red;">删除</span>';
         } else {
         	return '未知';
         }
@@ -129,7 +131,7 @@ var E3 = {
     			    			if($(this).tree("isLeaf",node.target)){
     			    				// 填写到cid中
     			    				_ele.parent().find("[name=cid]").val(node.id);
-    			    				_ele.next().text(node.text).attr("cid",node.id);
+    			    				_ele.next().text(node.text);
     			    				$(_win).window('close');
     			    				if(data && data.fun){
     			    					data.fun.call(this,node);
