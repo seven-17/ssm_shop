@@ -23,6 +23,7 @@ public class FileUploadController {
 	@Value("${FastDFS_Client_Adress}")
 	private String FastDFS_Client_Adress;
 	
+	//解决浏览器兼容性问题
 	@RequestMapping(value="/pic/upload",produces=MediaType.TEXT_PLAIN_VALUE+";charset=utf-8")
 	public @ResponseBody String itemImageUpload(MultipartFile uploadFile) {
 		try {

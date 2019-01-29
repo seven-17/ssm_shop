@@ -72,9 +72,11 @@ var contentListToolbar = [{
 				
 				// 实现图片
 				if(data.pic){
+					$("#contentEditForm [name=pic]").siblings("a:has(img)").remove();
 					$("#contentEditForm [name=pic]").after("<a href='"+data.pic+"' target='_blank'><img src='"+data.pic+"' width='80' height='50'/></a>");	
 				}
 				if(data.pic2){
+					$("#contentEditForm [name=pic2]").siblings("a:has(img)").remove();
 					$("#contentEditForm [name=pic2]").after("<a href='"+data.pic2+"' target='_blank'><img src='"+data.pic2+"' width='80' height='50'/></a>");					
 				}
 				

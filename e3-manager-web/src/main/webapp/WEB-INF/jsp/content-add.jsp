@@ -59,24 +59,23 @@
 	});
 	
 	var contentAddPage  = {
-			submitForm : function (){
-				if(!$('#contentAddForm').form('validate')){
-					$.messager.alert('提示','表单还未填写完成!');
-					return ;
-				}
-				contentAddEditor.sync();
-				
-				$.post("/content/save",$("#contentAddForm").serialize(), function(data){
-					if(data.status == 200){
-						$.messager.alert('提示','新增内容成功!');
-    					$("#contentList").datagrid("reload");
-    					E3.closeCurrentWindow();
-					}
-				});
-			},
-			clearForm : function(){
-				$('#contentAddForm').form('reset');
-				contentAddEditor.html('');
+		submitForm : function (){
+			if(!$('#contentAddForm').form('validate')){
+				$.messager.alert('提示','表单还未填写完成!');
+				return ;
 			}
+			contentAddEditor.sync();
+			
+			$.post("/content/save",$("#contentAddForm").serialize(), function(data){
+				if(data.status == 200){
+ 					$("#contentList").datagrid("reload");
+ 					E3.closeCurrentWindow();
+				}
+			});
+		},
+		clearForm : function(){
+			$('#contentAddForm').form('reset');
+			contentAddEditor.html('');
+		}
 	};
 </script>

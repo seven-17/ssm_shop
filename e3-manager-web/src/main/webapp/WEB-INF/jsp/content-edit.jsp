@@ -48,7 +48,6 @@
 	</form>
 	<div style="padding:5px">
 	    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="contentEditPage.submitForm()">提交</a>
-	    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="contentEditPage.clearForm()">重置</a>
 	</div>
 </div>
 <script type="text/javascript">
@@ -59,24 +58,20 @@ $(function(){
 });
 
 var contentEditPage = {
-		submitForm : function(){
-			if(!$('#contentEditForm').form('validate')){
-				$.messager.alert('提示','表单还未填写完成!');
-				return ;
-			}
-			contentEditEditor.sync();
-			
-			$.post("/rest/content/edit",$("#contentEditForm").serialize(), function(data){
-				if(data.status == 200){
-					$.messager.alert('提示','新增内容成功!');
-					$("#contentList").datagrid("reload");
-					E3.closeCurrentWindow();
-				}
-			});
-		},
-		clearForm : function(){
-			
+	submitForm : function(){
+		if(!$('#contentEditForm').form('validate')){
+			$.messager.alert('提示','表单还未填写完成!');
+			return ;
 		}
+		contentEditEditor.sync();
+		
+		$.post("/content/edit",$("#contentEditForm").serialize(), function(data){
+			if(data.status == 200){
+				$("#contentList").datagrid("reload");
+				E3.closeCurrentWindow();
+			}
+		});
+	}
 };
 
 </script>
