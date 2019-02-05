@@ -1,5 +1,7 @@
 package cn.e3mall.content.service.impl;
-
+/**
+ **内容菜单管理
+ */
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;

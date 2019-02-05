@@ -3,7 +3,15 @@ package cn.e3mall.service.impl;
 import java.util.Date;
 import java.util.List;
 
+import javax.annotation.Resource;
+import javax.jms.Destination;
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.Session;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Service;
 
 import com.github.pagehelper.PageHelper;
@@ -27,6 +35,10 @@ public class ItemServiceImpl implements ItemService {
 	private TbItemMapper itemMapper;
 	@Autowired
 	private TbItemDescMapper itemDescMapper;
+	@Autowired
+	private JmsTemplate jmsTemplate;
+	@Resource(name="topicDestination")
+	private Destination destination;
 	
 	public TbItem getItemById(long itemId) {
 		//根据主键查询
@@ -69,6 +81,15 @@ public class ItemServiceImpl implements ItemService {
 		tbItemDesc.setCreated(new Date());
 		tbItemDesc.setUpdated(new Date());
 		itemDescMapper.insert(tbItemDesc);
+		
+		//发送消息同步索引库
+		jmsTemplate.send(destination, new MessageCreator() {
+			@Override
+			public Message createMessage(Session session) throws JMSException {
+				return session.createTextMessage(id+"");
+			}
+		});
+		
 		return E3Result.ok();
 	}
 

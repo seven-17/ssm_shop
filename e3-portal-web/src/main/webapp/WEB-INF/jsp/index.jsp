@@ -89,21 +89,21 @@
 		</ol>
 	</div>      
      <div class="rSide">	
-		           <a name="sfbest_hp_hp_focus_right-ad1" class="a-img r-img1 trackref" href="/html/activity/1472440858.html" target="_blank">
-          <img alt="8.30-9.5 月饼" src="/images/html/ddf3f66b114f3a3bfbbe0b47693cdbf0.jpg">
-          <div class="rmask"></div>
+		  <a name="sfbest_hp_hp_focus_right-ad1" class="a-img r-img1 trackref" href="/html/activity/1472440858.html" target="_blank">
+	          <img alt="8.30-9.5 月饼" src="/images/html/ddf3f66b114f3a3bfbbe0b47693cdbf0.jpg">
+	          <div class="rmask"></div>
           </a>
-		 		           <a name="sfbest_hp_hp_focus_right-ad2" class="a-img r-img2 trackref" href="/html/activity/1472471068.html" target="_blank">
-          <img s="" alt="8.30-9.5" src="/images/html/51e357022c1f826f13211222831a4b13.jpg">
-          <div class="rmask"></div>
+          
+		  <a name="sfbest_hp_hp_focus_right-ad2" class="a-img r-img2 trackref" href="/html/activity/1472471068.html" target="_blank">
+	          <img s="" alt="8.30-9.5" src="/images/html/51e357022c1f826f13211222831a4b13.jpg">
+	          <div class="rmask"></div>
           </a>
-		  
 		 			
           <a name="sfbest_hp_hp_focus_right-ad3" class="a-img r-img3 trackref" href="/html/activity/1473011294.html" target="_blank">
           <img alt="9.5中秋菜谱" src="/images/html/838abc2055e36f423701de255bbc9914.jpg">
           <div class="rmask"></div>
           </a>
-		   	  </div>   
+	  </div>   
  	</div>
 		<ul class="none" id="lunboNum">
    			<c:forEach items="${ad1List }" varStatus="status">

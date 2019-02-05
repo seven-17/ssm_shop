@@ -1,4 +1,4 @@
-package cn.e3mall.test;
+package cn.e3mall.testPageHelper;
 
 import java.util.List;
 

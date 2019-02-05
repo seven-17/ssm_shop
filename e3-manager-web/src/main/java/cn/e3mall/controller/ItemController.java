@@ -39,12 +39,14 @@ public class ItemController {
 	//1-正常，2-下架，3-删除
 	@RequestMapping("/item/delete")
 	public @ResponseBody E3Result deleteItemById(String ids) {
-		return itemService.updateItemStatus(ids.split(","),(byte)3);
+		String[] strings = ids.split(",");
+		return itemService.updateItemStatus(strings,(byte)3);
 	}
 	
 	@RequestMapping("/item/instock")
 	public @ResponseBody E3Result instockItem(String ids) {
-		return itemService.updateItemStatus(ids.split(","),(byte)2);
+		String[] strings = ids.split(",");
+		return itemService.updateItemStatus(strings,(byte)2);
 	}
 	
 	@RequestMapping("/item/reshelf")
