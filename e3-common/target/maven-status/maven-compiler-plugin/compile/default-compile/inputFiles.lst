@@ -5,6 +5,7 @@ D:\eclipse_workspaceKJ\ssm_shop\e3-common\src\main\java\cn\e3mall\common\utils\J
 D:\eclipse_workspaceKJ\ssm_shop\e3-common\src\main\java\cn\e3mall\common\jedis\JedisClient.java
 D:\eclipse_workspaceKJ\ssm_shop\e3-common\src\main\java\cn\e3mall\common\jedis\JedisClientPool.java
 D:\eclipse_workspaceKJ\ssm_shop\e3-common\src\main\java\cn\e3mall\common\pojo\SearchItem.java
+D:\eclipse_workspaceKJ\ssm_shop\e3-common\src\main\java\cn\e3mall\common\utils\CookieUtils.java
 D:\eclipse_workspaceKJ\ssm_shop\e3-common\src\main\java\cn\e3mall\common\jedis\JedisClientCluster.java
 D:\eclipse_workspaceKJ\ssm_shop\e3-common\src\main\java\cn\e3mall\common\utils\IDUtils.java
 D:\eclipse_workspaceKJ\ssm_shop\e3-common\src\main\java\cn\e3mall\common\pojo\EasyUITreeNode.java
